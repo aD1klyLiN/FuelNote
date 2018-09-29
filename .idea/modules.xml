@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FuelNote.iml" filepath="$PROJECT_DIR$/FuelNote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fuelnote/fuelnote.iml" filepath="$PROJECT_DIR$/fuelnote/fuelnote.iml" />
+    </modules>
+  </component>
+</project>

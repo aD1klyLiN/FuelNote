@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name" translatable="false">FuelNote</string>
+
+    <!--Main Activity UI Strings-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Powered by lyLiN</string>
+    <string name="nav_header_subtitle" translatable="false">http://blog.lylin.ml</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Options</string>
+    <string name="drawer_menu_add">Add</string>
+    <string name="drawer_menu_list">List</string>
+    <string name="drawer_menu_statistics">Statistics</string>
+    <string name="drawer_menu_settings">Settings</string>
+    <string name="drawer_menu_group_more">More</string>
+    <string name="drawer_menu_advert">Advertising</string>
+    <string name="drawer_menu_info">Information</string>
+
+    <!--Fragment Tags-->
+    <string name="add_fragment" translatable="false">ADD FRAGMENT</string>
+    <string name="list_fragment" translatable="false">LIST FRAGMENT</string>
+    <string name="stat_fragment" translatable="false">STAT FRAGMENT</string>
+    <string name="settings_fragment" translatable="false">SETTINGS FRAGMENT</string>
+
+    <!--Add Fragment UI Strings-->
+    <string name="button_change_date">Change Date</string>
+    <string name="button_Write">Write</string>
+    <string name="text_current_date">Current date…</string>
+    <string name="text_enter_mileage">Enter a mileage…</string>
+    <string-array name="fuel_volume_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+    </string-array>
+
+    <!--List Fragment UI Strings-->
+    <string name="nan">NaN</string>
+
+    <!--Names of Months to Date View-->
+    <string name="month_january">January</string>
+    <string name="month_february">February</string>
+    <string name="month_march">March</string>
+    <string name="month_april">April</string>
+    <string name="month_may">May</string>
+    <string name="month_june">June</string>
+    <string name="month_july">July</string>
+    <string name="month_august">August</string>
+    <string name="month_september">September</string>
+    <string name="month_october">October</string>
+    <string name="month_november">November</string>
+    <string name="month_december">December</string>
+    <string-array name="names_of_months">
+        <item>@string/month_january</item>
+        <item>@string/month_february</item>
+        <item>@string/month_march</item>
+        <item>@string/month_april</item>
+        <item>@string/month_may</item>
+        <item>@string/month_june</item>
+        <item>@string/month_july</item>
+        <item>@string/month_august</item>
+        <item>@string/month_september</item>
+        <item>@string/month_october</item>
+        <item>@string/month_november</item>
+        <item>@string/month_december</item>
+    </string-array>
+
+</resources>

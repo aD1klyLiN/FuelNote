@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Открыть панель</string>
+    <string name="navigation_drawer_close">Закрыть панель</string>
+    <string name="nav_header_desc">Панель меню</string>
+    <string name="action_settings">Опции</string>
+    <string name="drawer_menu_add">Добавить</string>
+    <string name="drawer_menu_list">Список</string>
+    <string name="drawer_menu_statistics">Статистика</string>
+    <string name="drawer_menu_settings">Настройки</string>
+    <string name="drawer_menu_group_more">Дополнительно</string>
+    <string name="drawer_menu_advert">Реклама</string>
+    <string name="drawer_menu_info">Информация</string>
+    <string name="button_change_date">Установить дату</string>
+    <string name="button_Write">Записать</string>
+    <string name="text_current_date">Установленная дата…</string>
+    <string name="month_january">Января</string>
+    <string name="month_february">Февраля</string>
+    <string name="month_march">Марта</string>
+    <string name="month_april">Апреля</string>
+    <string name="month_may">Мая</string>
+    <string name="month_june">Июня</string>
+    <string name="month_july">Июля</string>
+    <string name="month_august">Августа</string>
+    <string name="month_september">Сентября</string>
+    <string name="month_october">Октября</string>
+    <string name="month_november">Ноября</string>
+    <string name="month_december">Декабря</string>
+    <string name="text_enter_mileage">Введите пробег…</string>
+</resources>

@@ -1,32 +1,33 @@
 package ml.lylin.utils.fueldata.fragments;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
 import ml.lylin.utils.fueldata.R;
 import ml.lylin.utils.fueldata.db.FuelData;
+import ml.lylin.utils.fueldata.viewmodel.FuelDataViewModel;
 
 public class FuelDataListAdapter extends RecyclerView.Adapter<FuelDataListAdapter.FuelDataListViewHolder> {
 
-    private final List<FuelData> fuelDataList;
+    private List<FuelData> fuelDataList;
     private LayoutInflater mInflater;
-    private ListFragment.OnFragmentInteractionListener mListener;
+    private FuelDataViewModel mViewModel;
 
-    public FuelDataListAdapter(Context context, ListFragment.OnFragmentInteractionListener mListener) {
+
+    public FuelDataListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
-        this.mListener = mListener;
-        this.fuelDataList = mListener.getFuelDataList();
+        mViewModel = ViewModelProviders.of((FragmentActivity) context).get(FuelDataViewModel.class);
+        this.fuelDataList = mViewModel.getFuelDataList().getValue();
     }
 
     @NonNull
@@ -54,6 +55,10 @@ public class FuelDataListAdapter extends RecyclerView.Adapter<FuelDataListAdapte
 
     }
 
+    public void setFuelDataList(List<FuelData> fuelDataList) {
+        this.fuelDataList = fuelDataList;
+    }
+
     class FuelDataListViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
         private TextView tvDate, tvMileage, tvFuelVolume;
@@ -63,17 +68,18 @@ public class FuelDataListAdapter extends RecyclerView.Adapter<FuelDataListAdapte
             super(itemView);
             this.mAdapter = adapter;
             itemView.setOnLongClickListener(this);
-            //itemView.setOn
             tvDate = itemView.findViewById(R.id.tvDate);
             tvMileage = itemView.findViewById(R.id.tvMileage);
             tvFuelVolume = itemView.findViewById(R.id.tvFuelVolume);
         }
 
         void bindData(FuelData fuelData) {
+            String dateDay = fuelData.getDayOfMonth() > 9 ? Integer.toString(fuelData.getDayOfMonth()) : "0" + Integer.toString(fuelData.getDayOfMonth());
+            String dateMonth = fuelData.getMonth() > 8 ? Integer.toString(fuelData.getMonth() + 1) : "0" + Integer.toString(fuelData.getMonth() + 1);
             String dateString = String.format(Locale.ENGLISH,
-                    "%d/%d/%d",
-                    fuelData.getDayOfMonth(),
-                    fuelData.getMonth() + 1,
+                    "%s/%s/%d",
+                    dateDay,
+                    dateMonth,
                     fuelData.getYear());
             tvDate.setText(dateString);
             String mileage = String.format(
@@ -92,11 +98,8 @@ public class FuelDataListAdapter extends RecyclerView.Adapter<FuelDataListAdapte
         public boolean onLongClick(View v) {
             int position = getLayoutPosition();
             FuelData element = fuelDataList.get(position);
-            mListener.deleteItem(element);
+            mViewModel.deleteFuelData(element);
             mAdapter.notifyDataSetChanged();
-            mAdapter.notifyItemRemoved(position);
-            v.invalidate();
-            v.refreshDrawableState();
             return true;
         }
     }

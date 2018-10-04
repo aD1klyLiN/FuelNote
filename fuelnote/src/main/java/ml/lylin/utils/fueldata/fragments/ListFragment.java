@@ -1,8 +1,10 @@
 package ml.lylin.utils.fueldata.fragments;
 
 import android.app.Fragment;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import ml.lylin.utils.fueldata.R;
 import ml.lylin.utils.fueldata.db.FuelData;
+import ml.lylin.utils.fueldata.viewmodel.FuelDataViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +30,7 @@ public class ListFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private FuelDataListAdapter fuelDataListAdapter;
+    private FuelDataViewModel mViewModel;
 
 
     public ListFragment() {
@@ -53,8 +57,8 @@ public class ListFragment extends Fragment {
         RecyclerView rvFuelDataList = fragmentView.findViewById(R.id.rvList);
         ImageButton btnRead = fragmentView.findViewById(R.id.btnRead);
         ImageButton btnSave = fragmentView.findViewById(R.id.btnSave);
-        btnRead.setOnClickListener(mListener.onButtonRead());
-        btnSave.setOnClickListener(mListener.onButtonSave());
+        btnRead.setOnClickListener(onButtonRead());
+        btnSave.setOnClickListener(onButtonSave());
         rvFuelDataList.setAdapter(fuelDataListAdapter);
         rvFuelDataList.setLayoutManager(new LinearLayoutManager(getActivity()));
         return fragmentView;
@@ -69,7 +73,8 @@ public class ListFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-        fuelDataListAdapter = new FuelDataListAdapter(context, mListener);
+        mViewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(FuelDataViewModel.class);
+        fuelDataListAdapter = new FuelDataListAdapter(context);
 
     }
 
@@ -78,6 +83,25 @@ public class ListFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    public View.OnClickListener onButtonRead() {
+        mViewModel.getFuelDataFromFile();
+        return null;
+    }
+
+    public View.OnClickListener onButtonSave() {
+        mViewModel.backupFuelDataToFile();
+        return null;
+    }
+
+    public List<FuelData> getFuelDataList() {
+        return mViewModel.getFuelDataList().getValue();
+    }
+
+    public void deleteItem(FuelData fuelData) {
+        mViewModel.deleteFuelData(fuelData);
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -92,10 +116,6 @@ public class ListFragment extends Fragment {
     public interface OnFragmentInteractionListener {
 
         List<FuelData> getFuelDataList();
-
-        View.OnClickListener onButtonRead();
-
-        View.OnClickListener onButtonSave();
 
         void deleteItem(FuelData fuelData);
     }

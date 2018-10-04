@@ -38,7 +38,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mViewModel = ViewModelProviders.of(this).get(FuelDataViewModel.class);
+        mViewModel.getFuelDataList().observe(this, new Observer<List<FuelData>>() {
+            @Override
+            public void onChanged(@Nullable List<FuelData> fuelData) {
+                Toast.makeText(getApplicationContext(), "LiveData changed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -54,16 +64,6 @@ public class MainActivity extends AppCompatActivity
 
         insertFragment(AddFragment.newInstance("", ""));
 
-        mViewModel = ViewModelProviders.of(this).get(FuelDataViewModel.class);
-        mViewModel.getFuelDataList().observe(this, new Observer<List<FuelData>>() {
-            @Override
-            public void onChanged(@Nullable List<FuelData> fuelData) {
-                Toast.makeText(getApplicationContext(), "LiveData changed", Toast.LENGTH_SHORT).show();
-                if (getFragmentManager().getFragment(null, "") instanceof ListFragment) {
-
-                }
-            }
-        });
     }
 
     private void insertFragment(Fragment fragment) {
@@ -141,18 +141,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public List<FuelData> getFuelDataList() {
         return mViewModel.getFuelDataList().getValue();
-    }
-
-    @Override
-    public View.OnClickListener onButtonRead() {
-        mViewModel.getFuelDataFromFile();
-        return null;
-    }
-
-    @Override
-    public View.OnClickListener onButtonSave() {
-        mViewModel.backupFuelDataToFile();
-        return null;
     }
 
     @Override

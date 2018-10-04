@@ -27,7 +27,7 @@ public interface FuelDataDao {
     @Query("SELECT * FROM fuel_data WHERE mileage = :mileage")
     LiveData<FuelData> getByMileage(int mileage);
 
-    @Insert(onConflict = OnConflictStrategy.FAIL)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(FuelData fuelData);
 
     @Query("UPDATE fuel_data SET fuel_volume = :newFuelVolume WHERE mileage = :mileage")

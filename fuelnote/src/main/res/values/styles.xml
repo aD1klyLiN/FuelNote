@@ -19,6 +19,7 @@
 
     <style name="component">
         <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/item_text</item>
     </style>
 
 </resources>

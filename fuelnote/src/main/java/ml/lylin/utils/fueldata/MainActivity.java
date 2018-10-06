@@ -29,7 +29,7 @@ import ml.lylin.utils.fueldata.fragments.StatFragment;
 import ml.lylin.utils.fueldata.viewmodel.FuelDataViewModel;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AddFragment.OnFragmentInteractionListener, ListFragment.OnFragmentInteractionListener,
+        implements NavigationView.OnNavigationItemSelectedListener, AddFragment.OnFragmentInteractionListener,
         StatFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener{
 
     private FuelDataViewModel mViewModel;
@@ -40,12 +40,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         mViewModel = ViewModelProviders.of(this).get(FuelDataViewModel.class);
-        mViewModel.getFuelDataList().observe(this, new Observer<List<FuelData>>() {
-            @Override
-            public void onChanged(@Nullable List<FuelData> fuelData) {
-                Toast.makeText(getApplicationContext(), "LiveData changed", Toast.LENGTH_SHORT).show();
-            }
-        });
+        mViewModel.getFuelDataList().observe(this, fuelData -> Toast.makeText(getApplicationContext(), "LiveData changed", Toast.LENGTH_SHORT).show());
 
         setContentView(R.layout.activity_main);
 
@@ -136,16 +131,6 @@ public class MainActivity extends AppCompatActivity
     public void onBtnWritePressed(FuelData fuelData) {
         mViewModel.insertFuelData(fuelData);
         Toast.makeText(this, "Data inserted", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public List<FuelData> getFuelDataList() {
-        return mViewModel.getFuelDataList().getValue();
-    }
-
-    @Override
-    public void deleteItem(FuelData fuelData) {
-        mViewModel.deleteFuelData(fuelData);
     }
 
 }

@@ -1,9 +1,13 @@
 package ml.lylin.utils.fueldata.fragments;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,16 +24,13 @@ import ml.lylin.utils.fueldata.viewmodel.FuelDataViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ListFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
  * Use the {@link ListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListFragment extends Fragment {
+public class ListFragment extends Fragment implements FuelDataListAdapter.ItemClickListener{
 
-    private OnFragmentInteractionListener mListener;
     private FuelDataListAdapter fuelDataListAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private FuelDataViewModel mViewModel;
 
 
@@ -59,29 +60,21 @@ public class ListFragment extends Fragment {
         ImageButton btnSave = fragmentView.findViewById(R.id.btnSave);
         btnRead.setOnClickListener(onButtonRead());
         btnSave.setOnClickListener(onButtonSave());
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        rvFuelDataList.setLayoutManager(mLayoutManager);
         rvFuelDataList.setAdapter(fuelDataListAdapter);
-        rvFuelDataList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mViewModel.getFuelDataList().observe((LifecycleOwner) getActivity(), fuelDataList -> {
+            fuelDataListAdapter.notifyDataSetChanged();
+        });
         return fragmentView;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
         mViewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(FuelDataViewModel.class);
-        fuelDataListAdapter = new FuelDataListAdapter(context);
+        fuelDataListAdapter = new FuelDataListAdapter(getFuelDataList(), this);
 
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     public View.OnClickListener onButtonRead() {
@@ -102,21 +95,22 @@ public class ListFragment extends Fragment {
         mViewModel.deleteFuelData(fuelData);
     }
 
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-
-        List<FuelData> getFuelDataList();
-
-        void deleteItem(FuelData fuelData);
+    @Override
+    public boolean onLongClick(FuelDataListAdapter.FuelDataListViewHolder viewHolder) {
+        int position = viewHolder.getAdapterPosition();
+        FuelData deletedFuelData = mViewModel.getFuelDataList().getValue().get(position);
+        AlertDialog dialog = new AlertDialog.Builder(getActivity())
+                .setTitle("WARNING!!!")
+                .setMessage("This item has been deleted!!!")
+                .setPositiveButton(android.R.string.ok, (thisDialog, which) -> {
+                    deleteItem(deletedFuelData);
+                    //fuelDataListAdapter.notifyItemRemoved(position);
+                })
+                .setNegativeButton(android.R.string.cancel, (thisDialog, which) -> {
+                    thisDialog.dismiss();
+                })
+                .create();
+        dialog.show();
+        return true;
     }
 }

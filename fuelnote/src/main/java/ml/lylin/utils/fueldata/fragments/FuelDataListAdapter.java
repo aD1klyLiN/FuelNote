@@ -53,6 +53,10 @@ public class FuelDataListAdapter extends RecyclerView.Adapter<FuelDataListAdapte
         this.fuelDataList = fuelDataList;
     }
 
+    public List<FuelData> getFuelDataList() {
+        return fuelDataList;
+    }
+
     class FuelDataListViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvDate, tvMileage, tvFuelVolume;

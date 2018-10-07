@@ -99,12 +99,14 @@ public class ListFragment extends Fragment implements FuelDataListAdapter.ItemCl
     public boolean onLongClick(FuelDataListAdapter.FuelDataListViewHolder viewHolder) {
         int position = viewHolder.getAdapterPosition();
         FuelData deletedFuelData = mViewModel.getFuelDataList().getValue().get(position);
+
         AlertDialog dialog = new AlertDialog.Builder(getActivity())
                 .setTitle("WARNING!!!")
                 .setMessage("This item has been deleted!!!")
                 .setPositiveButton(android.R.string.ok, (thisDialog, which) -> {
                     deleteItem(deletedFuelData);
-                    //fuelDataListAdapter.notifyItemRemoved(position);
+                    fuelDataListAdapter.getFuelDataList().remove(position);
+                    fuelDataListAdapter.notifyItemRemoved(position);
                 })
                 .setNegativeButton(android.R.string.cancel, (thisDialog, which) -> {
                     thisDialog.dismiss();

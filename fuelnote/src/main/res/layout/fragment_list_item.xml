@@ -1,38 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvDate"
-        style="@style/component"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_margin="4dp"
         android:layout_weight="1"
-        android:text="@string/nan"
-        android:textAlignment="center"
-        tools:text="@string/nan" />
+        app:cardBackgroundColor="@color/item_back"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
 
-    <TextView
-        android:id="@+id/tvMileage"
-        style="@style/component"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:layout_weight="1"
-        android:text="@string/nan"
-        android:textAlignment="center" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvFuelVolume"
-        style="@style/component"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:layout_weight="1"
-        android:text="@string/nan"
-        android:textAlignment="center" />
+            <TextView
+                android:id="@+id/tvDate"
+                style="@style/component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="@string/nan"
+                android:textAlignment="center"
+                tools:text="@string/nan" />
+
+            <TextView
+                android:id="@+id/tvMileage"
+                style="@style/component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="@string/nan"
+                android:textAlignment="center"
+                tools:text="@string/nan" />
+
+            <TextView
+                android:id="@+id/tvFuelVolume"
+                style="@style/component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="@string/nan"
+                android:textAlignment="center"
+                tools:text="@string/nan" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>

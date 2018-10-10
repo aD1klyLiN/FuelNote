@@ -3,11 +3,9 @@ package ml.lylin.utils.fueldata.fragments;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -63,9 +61,7 @@ public class ListFragment extends Fragment implements FuelDataListAdapter.ItemCl
         mLayoutManager = new LinearLayoutManager(getActivity());
         rvFuelDataList.setLayoutManager(mLayoutManager);
         rvFuelDataList.setAdapter(fuelDataListAdapter);
-        mViewModel.getFuelDataList().observe((LifecycleOwner) getActivity(), fuelDataList -> {
-            fuelDataListAdapter.notifyDataSetChanged();
-        });
+        mViewModel.getFuelDataList().observe((LifecycleOwner) getActivity(), fuelDataList -> fuelDataListAdapter.notifyDataSetChanged());
         return fragmentView;
     }
 
@@ -108,9 +104,7 @@ public class ListFragment extends Fragment implements FuelDataListAdapter.ItemCl
                     fuelDataListAdapter.getFuelDataList().remove(position);
                     fuelDataListAdapter.notifyItemRemoved(position);
                 })
-                .setNegativeButton(android.R.string.cancel, (thisDialog, which) -> {
-                    thisDialog.dismiss();
-                })
+                .setNegativeButton(android.R.string.cancel, (thisDialog, which) -> thisDialog.dismiss())
                 .create();
         dialog.show();
         return true;

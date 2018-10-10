@@ -8,31 +8,19 @@
     tools:context=".fragments.AddFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/add_fragment"
-        style="@style/component"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvDate"
+        style="@style/component"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/text_current_date"
-        style="@style/component"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnDatePicker"
@@ -61,7 +49,8 @@
         style="@style/component"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDatePicker" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDatePicker"
+        android:autofillHints="@string/text_enter_mileage" />
 
     <Spinner
         android:id="@+id/spFuelVolume"
@@ -77,15 +66,15 @@
 
     <Button
         android:id="@+id/btnWrite"
+        style="@style/component"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/button_Write"
-        style="@style/component"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spFuelVolume" />
 
 </android.support.constraint.ConstraintLayout>

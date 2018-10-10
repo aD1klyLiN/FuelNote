@@ -27,4 +27,6 @@
     <string name="month_november">Ноября</string>
     <string name="month_december">Декабря</string>
     <string name="text_enter_mileage">Введите пробег…</string>
+    <string name="text_average_flow">Средний расход</string>
+    <string name="text_pending_mileage">Ожидаемый пробег</string>
 </resources>

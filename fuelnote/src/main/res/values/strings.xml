@@ -38,7 +38,7 @@
     </string-array>
 
     <!--List Fragment UI Strings-->
-    <string name="nan">NaN</string>
+    <string name="nan" translatable="false">NaN</string>
 
     <!--Names of Months to Date View-->
     <string name="month_january">January</string>
@@ -53,6 +53,8 @@
     <string name="month_october">October</string>
     <string name="month_november">November</string>
     <string name="month_december">December</string>
+    <string name="text_average_flow">Average flow rate</string>
+    <string name="text_pending_mileage">Pending mileage</string>
     <string-array name="names_of_months">
         <item>@string/month_january</item>
         <item>@string/month_february</item>

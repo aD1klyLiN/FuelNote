@@ -1,1 +1,1 @@
-include ':fuelnote'
+include ':fuelnote', ':fuelnote2'

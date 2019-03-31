@@ -13,7 +13,6 @@ android {
         versionName '0.1.'
         versionNameSuffix '9'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        //vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -77,6 +76,10 @@ dependencies {
     // Navigation
 
     // WorkManager
+
+    // Coroutines
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
 
     // Test Common
     testImplementation 'junit:junit:4.12'

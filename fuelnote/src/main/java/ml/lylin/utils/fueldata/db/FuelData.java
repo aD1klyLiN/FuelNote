@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * класс-сущность (Entity) для Room

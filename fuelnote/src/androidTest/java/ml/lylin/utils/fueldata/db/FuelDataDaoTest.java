@@ -1,11 +1,11 @@
 package ml.lylin.utils.fueldata.db;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.persistence.room.Room;
-import android.support.annotation.Nullable;
-import android.support.test.InstrumentationRegistry;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.room.Room;
+import androidx.annotation.Nullable;
+import androidx.test.InstrumentationRegistry;
 
 import org.junit.After;
 import org.junit.Before;

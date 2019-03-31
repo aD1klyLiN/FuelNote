@@ -1,6 +1,6 @@
 package ml.lylin.utils.fueldata.db;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 
 import java.util.Calendar;
 import java.util.Date;

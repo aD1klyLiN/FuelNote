@@ -9,7 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/fuelnote" />
-            <option value="$PROJECT_DIR$/fuelnote2" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

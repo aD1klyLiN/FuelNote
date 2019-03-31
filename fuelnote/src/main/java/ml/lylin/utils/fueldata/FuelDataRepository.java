@@ -1,10 +1,10 @@
 package ml.lylin.utils.fueldata;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,10 +15,6 @@ import java.io.OutputStreamWriter;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
-import androidx.work.Worker;
-import androidx.work.WorkerParameters;
 import ml.lylin.utils.fueldata.db.FuelData;
 import ml.lylin.utils.fueldata.db.FuelDataDB;
 import ml.lylin.utils.fueldata.db.FuelDataDao;

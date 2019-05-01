@@ -29,4 +29,11 @@
     <string name="text_enter_mileage">Введите пробег…</string>
     <string name="text_average_flow">Средний расход</string>
     <string name="text_pending_mileage">Ожидаемый пробег</string>
+    <string name="week_monday">Понедельник</string>
+    <string name="week_tuesday">Вторник</string>
+    <string name="week_wednesday">Среда</string>
+    <string name="week_thursday">Четверг</string>
+    <string name="week_friday">Пятница</string>
+    <string name="week_saturday">Суббота</string>
+    <string name="week_sunday">Воскресенье</string>
 </resources>

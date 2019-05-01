@@ -27,10 +27,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    dataBinding {
+        enabled true
+    }
 }
 
 ext {
     work_version = '1.0.0'
+}
+
+kapt {
+    arguments {
+        arg("room.schemaLocation", "$projectDir/schemas".toString())
+    }
 }
 
 dependencies {
@@ -57,12 +66,14 @@ dependencies {
     // Room
     implementation 'androidx.room:room-common:2.0.0'
     implementation 'androidx.room:room-runtime:2.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     kapt 'androidx.room:room-compiler:2.0.0'
     androidTestImplementation 'androidx.room:room-testing:2.0.0'
 
     // Lifecycle
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
+    kapt 'androidx.lifecycle:lifecycle-compiler:2.0.0'
 
     // CardView
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -74,6 +85,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     // Navigation
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
 
     // WorkManager
 

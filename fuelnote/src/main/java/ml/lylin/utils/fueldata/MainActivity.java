@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity
         SettingsFragment.OnFragmentInteractionListener{
 
     private FuelDataViewModel mViewModel;
-    //private LiveData<List<FuelData>> fuelDataList;
+    //private LiveData<List<FillingRecord>> fillingRecordList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -19,7 +19,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class FuelDataDaoTest {
+public class FillingRecordDaoTest {
 
     private FuelDataDB db;
     private FuelDataDao dao;
@@ -40,7 +40,7 @@ public class FuelDataDaoTest {
 
     @Test
     public void getAll() throws NullPointerException{
-        //LiveData<List<FuelData>> listLiveData = TestHelper.getLiveDataList(1);
+        //LiveData<List<FillingRecord>> listLiveData = TestHelper.getLiveDataList(1);
         List<FuelData> list = TestHelper.getList(1);
 
         dao.insert(list.get(0));
@@ -105,7 +105,7 @@ public class FuelDataDaoTest {
                  Date date = calendar.getTime();
                  int mileage = 26589 + i*300;
                  int vol = 30;
-                 list.add(new FuelData(date, mileage, vol));
+                 list.add(new FuelData(calendar, mileage, vol));
              }
              return list;
          }

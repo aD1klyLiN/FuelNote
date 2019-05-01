@@ -70,4 +70,26 @@
         <item>@string/month_december</item>
     </string-array>
 
+    <!--Names of Days of Week to Date View-->
+    <string name="week_monday">Monday</string>
+    <string name="week_tuesday">Tuesday</string>
+    <string name="week_wednesday">Wednesday</string>
+    <string name="week_thursday">Thursday</string>
+    <string name="week_friday">Friday</string>
+    <string name="week_saturday">Saturday</string>
+    <string name="week_sunday">Sunday</string>
+    <string-array name="names_of_week">
+        <item>@string/nan</item>
+        <item>@string/week_sunday</item>
+        <item>@string/week_monday</item>
+        <item>@string/week_tuesday</item>
+        <item>@string/week_wednesday</item>
+        <item>@string/week_thursday</item>
+        <item>@string/week_friday</item>
+        <item>@string/week_saturday</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

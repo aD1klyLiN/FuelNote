@@ -130,12 +130,7 @@ public class AddFragment extends Fragment {
                 mMonth,
                 mDay);
         datePickerDialog.create();
-        btnDatePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                datePickerDialog.show();
-            }
-        });
+        btnDatePicker.setOnClickListener(v -> datePickerDialog.show());
 
         if (savedInstanceState != null) {
             etMileage.setText(savedInstanceState.getString(MILEAGE));
@@ -150,15 +145,12 @@ public class AddFragment extends Fragment {
             spFuelVolume.setSelection((savedInstanceState.getInt(FUEL_VOLUME)));
         }
 
-        btnWrite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar date = calendar;
-                int mileage = Integer.parseInt(etMileage.getText().toString());
-                int fuelVolume = Integer.parseInt(spFuelVolume.getSelectedItem().toString());
-                FuelData fuelData = new FuelData(date, mileage, fuelVolume);
-                mListener.onBtnWritePressed(fuelData);
-            }
+        btnWrite.setOnClickListener(v -> {
+            Calendar date = calendar;
+            int mileage = Integer.parseInt(etMileage.getText().toString());
+            int fuelVolume = Integer.parseInt(spFuelVolume.getSelectedItem().toString());
+            FuelData fuelData = new FuelData(date, mileage, fuelVolume);
+            mListener.onBtnWritePressed(fuelData);
         });
 
         return fragmentView;

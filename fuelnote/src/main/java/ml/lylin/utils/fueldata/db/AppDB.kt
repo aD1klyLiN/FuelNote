@@ -1,4 +1,4 @@
-package ml.lylin.utils.fueldata.db2
+package ml.lylin.utils.fueldata.db
 
 import android.content.Context
 import androidx.room.Database
@@ -25,8 +25,8 @@ abstract class AppDB : RoomDatabase() {
                 return tempInstance
             }
             synchronized(this) {
-                val instance = Room. databaseBuilder(
-                        context.applicationContext,
+                val instance = Room.databaseBuilder(
+                        context,
                         AppDB::class.java,
                         "app_db"
                 ).build()

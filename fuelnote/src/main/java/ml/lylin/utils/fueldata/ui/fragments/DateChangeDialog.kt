@@ -15,17 +15,12 @@ class DateChangeDialog: DialogFragment() {
     private lateinit var appViewModel: AppViewModel
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = DatePickerDialog(activity as Context,
+        return DatePickerDialog(activity as Context,
                 context as DatePickerDialog.OnDateSetListener,
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
-        return dialog
     }
-
-    /*Calendar.getInstance().get(Calendar.YEAR),
-    Calendar.getInstance().get(Calendar.MONTH),
-    Calendar.getInstance().get(Calendar.DAY_OF_MONTH)*/
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)

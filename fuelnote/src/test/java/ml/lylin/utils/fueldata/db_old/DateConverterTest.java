@@ -1,4 +1,4 @@
-package ml.lylin.utils.fueldata.db;
+package ml.lylin.utils.fueldata.db_old;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package ml.lylin.utils.fueldata.db;
+package ml.lylin.utils.fueldata.db_old;
 
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.room.Database;
@@ -9,8 +9,6 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadPoolExecutor;
 
 @Database(entities = {FuelData.class}, version = 1)
 @TypeConverters({DateConverter.class})

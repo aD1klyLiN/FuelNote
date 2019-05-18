@@ -8,8 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ml.lylin.utils.fueldata.AppRepository
-import ml.lylin.utils.fueldata.db2.FillingRecord
-import ml.lylin.utils.fueldata.db2.AppDB
+import ml.lylin.utils.fueldata.db.FillingRecord
+import ml.lylin.utils.fueldata.db.AppDB
 import kotlin.coroutines.CoroutineContext
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
@@ -25,8 +25,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     private val scope = CoroutineScope(coroutineContext)
 
     init {
-        val fuelDataDAO = AppDB.getDatabase(application).fillingRecordsDAO()
-        repo = AppRepository(application)
+        repo = AppRepository.getRepository(application)
         fillingRecordList = repo.fillingRecordList
     }
 

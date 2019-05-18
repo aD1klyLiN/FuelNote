@@ -1,4 +1,4 @@
-package ml.lylin.utils.fueldata.db2
+package ml.lylin.utils.fueldata.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

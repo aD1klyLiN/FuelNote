@@ -3,7 +3,6 @@ package ml.lylin.utils.fueldata.fragments;
 import android.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import ml.lylin.utils.fueldata.R;
-import ml.lylin.utils.fueldata.db.FuelData;
+import ml.lylin.utils.fueldata.db_old.FuelData;
 import ml.lylin.utils.fueldata.viewmodel.FuelDataViewModel;
 
 /**
@@ -37,7 +36,7 @@ public class StatFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment AddFragment.
+     * @return A new instance of fragment RecordAddFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static StatFragment newInstance() {

@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import java.util.List;
 
 import ml.lylin.utils.fueldata.R;
-import ml.lylin.utils.fueldata.db.FuelData;
+import ml.lylin.utils.fueldata.db_old.FuelData;
 import ml.lylin.utils.fueldata.viewmodel.FuelDataViewModel;
 
 /**
@@ -40,7 +40,7 @@ public class ListFragment extends Fragment implements FuelDataListAdapter.ItemCl
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment AddFragment.
+     * @return A new instance of fragment RecordAddFragment.
      */
     public static ListFragment newInstance() {
         ListFragment fragment = new ListFragment();

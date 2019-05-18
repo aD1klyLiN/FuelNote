@@ -1,4 +1,4 @@
-package ml.lylin.utils.fueldata.db2
+package ml.lylin.utils.fueldata.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -12,7 +12,7 @@ interface FillingRecordsDAO {
     @Query("SELECT * FROM filling_records")
     fun getAll(): LiveData<List<FillingRecord>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(fillingRecord: FillingRecord)
 
     @Update

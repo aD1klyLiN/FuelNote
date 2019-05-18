@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import ml.lylin.utils.fueldata.db.FuelData;
+import ml.lylin.utils.fueldata.db_old.FuelData;
 import ml.lylin.utils.fueldata.fragments.AddFragment;
 import ml.lylin.utils.fueldata.fragments.ListFragment;
 import ml.lylin.utils.fueldata.fragments.SettingsFragment;

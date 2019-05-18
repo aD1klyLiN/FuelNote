@@ -1,9 +1,8 @@
-package ml.lylin.utils.fueldata.db;
+package ml.lylin.utils.fueldata.db_old;
 
 import androidx.room.TypeConverter;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class DateConverter {
 

@@ -1,4 +1,4 @@
-package ml.lylin.utils.fueldata.db;
+package ml.lylin.utils.fueldata.db_old;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -11,7 +11,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * класс-сущность (Entity) для Room

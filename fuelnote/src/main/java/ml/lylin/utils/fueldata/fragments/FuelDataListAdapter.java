@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Locale;
 
 import ml.lylin.utils.fueldata.R;
-import ml.lylin.utils.fueldata.db.FuelData;
+import ml.lylin.utils.fueldata.db_old.FuelData;
 
 public class FuelDataListAdapter extends RecyclerView.Adapter<FuelDataListAdapter.FuelDataListViewHolder> {
 

@@ -3,14 +3,12 @@ package ml.lylin.utils.fueldata.viewmodel;
 import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MediatorLiveData;
 import androidx.annotation.NonNull;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 import ml.lylin.utils.fueldata.FuelDataRepository;
-import ml.lylin.utils.fueldata.db.FuelData;
+import ml.lylin.utils.fueldata.db_old.FuelData;
 
 public class FuelDataViewModel extends AndroidViewModel {
 

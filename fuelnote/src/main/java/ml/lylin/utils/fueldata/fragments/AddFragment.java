@@ -2,11 +2,9 @@ package ml.lylin.utils.fueldata.fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import ml.lylin.utils.fueldata.R;
-import ml.lylin.utils.fueldata.db.FuelData;
-import ml.lylin.utils.fueldata.viewmodel.FuelDataViewModel;
+import ml.lylin.utils.fueldata.db_old.FuelData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,7 +64,7 @@ public class AddFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AddFragment.
+     * @return A new instance of fragment RecordAddFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static AddFragment newInstance(String param1, String param2) {

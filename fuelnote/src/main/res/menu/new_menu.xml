@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/main" >
+        <item
+            android:id="@+id/addFragment"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/drawer_menu_add" />
+        <item
+            android:id="@+id/recordListFragment"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/drawer_menu_list" />
+    </group>
+</menu>

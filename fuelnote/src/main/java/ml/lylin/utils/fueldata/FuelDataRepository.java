@@ -3,8 +3,6 @@ package ml.lylin.utils.fueldata;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import android.content.Context;
-import android.os.AsyncTask;
-import androidx.annotation.NonNull;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,9 +13,9 @@ import java.io.OutputStreamWriter;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-import ml.lylin.utils.fueldata.db.FuelData;
-import ml.lylin.utils.fueldata.db.FuelDataDB;
-import ml.lylin.utils.fueldata.db.FuelDataDao;
+import ml.lylin.utils.fueldata.db_old.FuelData;
+import ml.lylin.utils.fueldata.db_old.FuelDataDB;
+import ml.lylin.utils.fueldata.db_old.FuelDataDao;
 
 public class FuelDataRepository {
 

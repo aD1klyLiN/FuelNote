@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$USER_HOME$/AndroidStudio/DeviceExplorer/emulator-5554/data/user/0/ml.lylin.utils.fuelnote/databases/app_db" charset="UTF-8" />
+  </component>
 </project>

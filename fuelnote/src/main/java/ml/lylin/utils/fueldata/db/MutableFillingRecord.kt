@@ -15,8 +15,9 @@ class MutableFillingRecord(
 
     fun getDayOfWeek(): Int {
         val calendar = Calendar.getInstance()
-        calendar.set(day, month, year)
-        return calendar.get(Calendar.DAY_OF_WEEK)
+        calendar.set(year, month, day)
+        val d = calendar.get(Calendar.DAY_OF_WEEK)
+        return d
     }
 
 }

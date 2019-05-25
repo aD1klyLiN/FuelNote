@@ -11,7 +11,7 @@
             name="month"
             type="String" />
         <variable
-            name="day_of_week"
+            name="dayOfWeek"
             type="String" />
         <variable
             name="mileage"
@@ -74,7 +74,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-black"
-            android:text="@{day_of_week}"
+            android:text="@{dayOfWeek}"
             android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/tvMonth"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +91,7 @@
             android:paddingRight="8dp"
             android:text="@{month}"
             android:textColor="@color/colorAccent"
-            android:textSize="48sp"
+            android:textSize="36sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/tvDay"
             app:layout_constraintStart_toEndOf="@+id/tvDay" />
 

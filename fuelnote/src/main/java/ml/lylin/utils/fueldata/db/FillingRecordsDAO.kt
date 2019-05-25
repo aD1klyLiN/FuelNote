@@ -9,7 +9,7 @@ import androidx.room.*
 @Dao
 interface FillingRecordsDAO {
 
-    @Query("SELECT * FROM filling_records")
+    @Query("SELECT * FROM filling_records ORDER BY year DESC, month DESC, day DESC")
     fun getAll(): LiveData<List<FillingRecord>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

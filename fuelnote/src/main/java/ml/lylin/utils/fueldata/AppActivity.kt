@@ -16,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.app_activity.*
 import ml.lylin.utils.fueldata.databinding.AppActivityBinding
 import ml.lylin.utils.fueldata.db.AppDB
 import ml.lylin.utils.fueldata.ui.fragments.MileageChangeDialog
@@ -36,17 +37,27 @@ class AppActivity : AppCompatActivity(), MileageChangeDialog.MileageChangeListen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //вьюмодель запрашивается у провайдера
         appViewModel = ViewModelProviders.of(this).get(AppViewModel::class.java)
+
+        //автогенерированный класс биндинга присоединяет разметку к активити
         val appBinding: AppActivityBinding = DataBindingUtil.setContentView(this, R.layout.app_activity)
+
+        //в биндинг передаётся переменная-вьюмодель
         appBinding.appViewModel = appViewModel
 
+        //навигационный хост - присоединяет контейнер для фрагментов
         val navHost = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment? ?: return
+
+        //контроллер берётся из хоста
         val navController = navHost.navController
 
+        //боковая панель, она связывается с навигационным контроллером
         val sideBar = findViewById<NavigationView>(R.id.nav_view)
         sideBar.setupWithNavController(navController)
 
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        //верхний тулбар
+        val appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout = drawer_layout)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setupWithNavController(navController, appBarConfiguration)
     }

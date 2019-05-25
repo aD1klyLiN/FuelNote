@@ -35,7 +35,7 @@ class MileageChangeDialog: DialogFragment() {
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
-    override fun onAttach(context: Context?){
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         try {
             listener = context as MileageChangeListener

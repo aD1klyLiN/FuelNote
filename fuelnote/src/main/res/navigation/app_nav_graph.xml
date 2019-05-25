@@ -7,15 +7,11 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="ml.lylin.utils.fueldata.ui.fragments.RecordAddFragment"
-        android:label="AddFragment"
-        tools:layout="@layout/fragment_add2">
-        <action
-            android:id="@+id/action_addFragment_to_recordListFragment"
-            app:destination="@id/recordListFragment" />
-    </fragment>
+        android:label="@string/drawer_menu_add"
+        tools:layout="@layout/fragment_add2"/>
     <fragment
         android:id="@+id/recordListFragment"
         android:name="ml.lylin.utils.fueldata.ui.fragments.RecordListFragment"
-        android:label="RecordListFragment"
+        android:label="@string/drawer_menu_list"
         tools:layout="@layout/fragment_list"/>
 </navigation>

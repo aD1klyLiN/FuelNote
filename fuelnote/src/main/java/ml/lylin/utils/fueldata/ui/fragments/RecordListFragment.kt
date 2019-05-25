@@ -1,16 +1,21 @@
 package ml.lylin.utils.fueldata.ui.fragments
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ml.lylin.utils.fueldata.R
 import ml.lylin.utils.fueldata.db.FillingRecord
 import ml.lylin.utils.fueldata.ui.viewmodel.AppViewModel
@@ -21,34 +26,38 @@ class RecordListFragment : Fragment() {
         ViewModelProviders.of(this).get(AppViewModel::class.java)
     }
 
-    /*override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        appViewModel = ViewModelProviders.of(context as FragmentActivity).get(AppViewModel::class.java)
-    }*/
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.run {
             this.inflate(R.layout.fragment_list, container, false)
         }
-        val listLayoutManager = LinearLayoutManager(context)
-        val listAdapter = RecordListAdapter(appViewModel.recordList) //listOf(appViewModel.record.value!!.record)
-        appViewModel.recordList.observe(this, Observer {
-            listAdapter.notifyDataSetChanged()
-        })
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvList)
-        recyclerView.layoutManager = listLayoutManager
+        val listAdapter = RecordListAdapter(context!!) //listOf(appViewModel.record.value!!.record)
+        recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = listAdapter
+
+        appViewModel.recordList.observe(this, Observer {
+            if (it.size < 10) {
+                listAdapter.list = it
+            } else {
+                listAdapter.list = it.subList(0, 10)
+            }
+        })
 
         return view
     }
 
-    private class RecordListAdapter(val recordList: LiveData<ArrayList<FillingRecord>>): RecyclerView.Adapter<RecordListViewHolder>() {
+    private inner class RecordListAdapter(val context: Context): RecyclerView.Adapter<RecordListViewHolder>() {
 
-        private val list = recordList.value ?: arrayListOf()
+        var list = emptyList<FillingRecord>()
+            set(value) {
+                field = value
+                notifyDataSetChanged()
+            }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordListViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_list_item, parent, false)
+            val view = LayoutInflater.from(context).inflate(R.layout.fragment_list_item, parent, false)
+            //view.setOnClickListener { appViewModel.delete(view.) } //Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show()
             return RecordListViewHolder(view)
         }
 
@@ -63,12 +72,28 @@ class RecordListFragment : Fragment() {
 
     }
 
-    private class RecordListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    private inner class RecordListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         fun bind(record: FillingRecord) {
-            itemView.findViewById<TextView>(R.id.tvDate).text = record.day.toString() + "/" + (record.month+1).toString()
+            itemView.findViewById<TextView>(R.id.tvDate).text = StringBuilder(if (record.day > 9) record.day.toString() else "0" + record.day.toString())
+                    .append("/")
+                    .append(if (record.month+1 > 9) (record.month+1).toString() else "0" + (record.month+1).toString())
+                    .toString()
+
             itemView.findViewById<TextView>(R.id.tvMileage).text = record.mileage.toString()
-            itemView.findViewById<TextView>(R.id.tvFuelVolume).text = record.fuelVolume.toString()
+            itemView.findViewById<TextView>(R.id.tvFuelVolume).text = if (record.fuelVolume > 9) record.fuelVolume.toString() else " " + record.fuelVolume.toString()
+            itemView.setOnLongClickListener {
+                MaterialAlertDialogBuilder(context)
+                        .setMessage("Delete this record?")
+                        .setPositiveButton(android.R.string.ok) { _, _ ->
+                            appViewModel.delete(record)
+                            Toast.makeText(context, "Record " + record.mileage.toString() + " deleted", Toast.LENGTH_SHORT).show()
+                        }
+                        .setNegativeButton(android.R.string.cancel) { _, _ ->  }
+                        .show()
+
+                true
+            }
         }
 
     }

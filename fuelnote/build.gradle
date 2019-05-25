@@ -9,9 +9,9 @@ android {
         applicationId 'ml.lylin.utils.fuelnote'
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 2
+        versionCode 3
         versionName '0.2.'
-        versionNameSuffix '0'
+        versionNameSuffix '1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -58,7 +58,7 @@ dependencies {
     // Android Support Library
 
     // Android Design
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
 
     // Constraint Layout
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

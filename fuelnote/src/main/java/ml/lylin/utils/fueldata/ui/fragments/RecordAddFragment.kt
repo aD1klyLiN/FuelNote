@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import ml.lylin.utils.fueldata.R
 import ml.lylin.utils.fueldata.databinding.FragmentAdd2Binding
 import ml.lylin.utils.fueldata.ui.viewmodel.AppViewModel
@@ -20,7 +21,7 @@ class RecordAddFragment: Fragment(), OnItemSelectedListener {
 
     private lateinit var appViewModel: AppViewModel
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         appViewModel = ViewModelProviders.of(context as FragmentActivity).get(AppViewModel::class.java)
     }
@@ -33,8 +34,8 @@ class RecordAddFragment: Fragment(), OnItemSelectedListener {
         appViewModel.record.observe(this, Observer {
             addFragmentBinding.apply {
                 this.day = if (it.day > 9) it.day.toString() else "0" + it.day.toString()
-                this.dayOfWeek = resources.getStringArray(R.array.names_of_week)[it.getDayOfWeek()]
                 this.month = resources.getStringArray(R.array.names_of_months)[it.month]
+                this.dayOfWeek = resources.getStringArray(R.array.names_of_week)[it.getDayOfWeek()]
                 this.mileage = it.mileage.toString()
             }
         })
@@ -52,16 +53,17 @@ class RecordAddFragment: Fragment(), OnItemSelectedListener {
 
     private fun onDateChangeClick(v: View) {
         val dateChangeDialog = DateChangeDialog()
-        dateChangeDialog.show(fragmentManager, "date_change_dialog")
+        dateChangeDialog.show(fragmentManager!!, "date_change_dialog")
     }
 
     private fun onMileageChangeClick(v: View) {
         val mileageChangeDialog = MileageChangeDialog()
-        mileageChangeDialog.show(fragmentManager, "mileage_change_dialog")
+        mileageChangeDialog.show(fragmentManager!!, "mileage_change_dialog")
     }
 
     private fun onRecordClick(v: View) {
         appViewModel.insert()
+        Navigation.findNavController(v).navigate(R.id.recordListFragment)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {

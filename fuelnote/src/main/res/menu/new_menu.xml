@@ -10,5 +10,9 @@
             android:id="@+id/recordListFragment"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/drawer_menu_list" />
+        <item
+            android:id="@+id/statFragment"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/drawer_menu_statistics" />
     </group>
 </menu>

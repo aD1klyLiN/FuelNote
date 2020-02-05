@@ -14,4 +14,8 @@
         android:name="ml.lylin.utils.fueldata.ui.fragments.RecordListFragment"
         android:label="@string/drawer_menu_list"
         tools:layout="@layout/fragment_list"/>
+    <fragment
+        android:id="@+id/statFragment"
+        android:name="ml.lylin.utils.fueldata.ui.fragments.StatFragment"
+        android:label="StatFragment" />
 </navigation>

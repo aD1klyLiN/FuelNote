@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId 'ml.lylin.utils.fuelnote'
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 3
         versionName '0.2.'
         versionNameSuffix '1'
@@ -20,7 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '28.0.3'
+    buildToolsVersion '29.0.3'
     productFlavors {
     }
     compileOptions {
@@ -49,31 +49,31 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     // AndroidX Core
-    implementation 'androidx.core:core:1.0.1'
-    implementation 'androidx.core:core-ktx:1.0.1'
+    implementation 'androidx.core:core:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
 
     // AppCompat
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 
     // Android Support Library
 
     // Android Design
-    implementation 'com.google.android.material:material:1.1.0-alpha06'
+    implementation 'com.google.android.material:material:1.2.0-alpha04'
 
     // Constraint Layout
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // Room
-    implementation 'androidx.room:room-common:2.0.0'
-    implementation 'androidx.room:room-runtime:2.0.0'
+    implementation 'androidx.room:room-common:2.2.3'
+    implementation 'androidx.room:room-runtime:2.2.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-    kapt 'androidx.room:room-compiler:2.0.0'
-    androidTestImplementation 'androidx.room:room-testing:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    kapt 'androidx.room:room-compiler:2.2.3'
+    androidTestImplementation 'androidx.room:room-testing:2.2.3'
 
     // Lifecycle
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    kapt 'androidx.lifecycle:lifecycle-compiler:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    kapt 'androidx.lifecycle:lifecycle-compiler:2.2.0'
 
     // CardView
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -85,20 +85,20 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment:2.0.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
-    implementation 'androidx.navigation:navigation-ui:2.0.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0'
+    implementation 'androidx.navigation:navigation-ui:2.2.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.0'
 
     // WorkManager
 
     // Coroutines
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
 
     // Test Common
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 }

@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FuelNote.iml" filepath="$PROJECT_DIR$/FuelNote.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fuelnote/fuelnote.iml" filepath="$PROJECT_DIR$/fuelnote/fuelnote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fuelnote/FuelNote.fuelnote.iml" filepath="$PROJECT_DIR$/.idea/modules/fuelnote/FuelNote.fuelnote.iml" />
     </modules>
   </component>
 </project>

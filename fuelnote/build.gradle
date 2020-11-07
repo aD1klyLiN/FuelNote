@@ -11,7 +11,7 @@ android {
         targetSdkVersion 29
         versionCode 3
         versionName '0.2.'
-        versionNameSuffix '1'
+        versionNameSuffix '2'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

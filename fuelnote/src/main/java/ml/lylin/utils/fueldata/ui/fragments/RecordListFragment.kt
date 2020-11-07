@@ -37,7 +37,7 @@ class RecordListFragment : Fragment() {
             if (it.size < 10) {
                 listAdapter.list = it
             } else {
-                listAdapter.list = it.subList(0, 10)
+                listAdapter.list = it //listAdapter.list = it.subList(0, 10)
             }
         })
 

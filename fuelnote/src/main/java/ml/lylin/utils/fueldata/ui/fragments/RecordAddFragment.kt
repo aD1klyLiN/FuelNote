@@ -46,7 +46,7 @@ class RecordAddFragment: Fragment(), OnItemSelectedListener {
         ArrayAdapter.createFromResource(context!!, R.array.fuel_volume_values, R.layout.spinner_list_item).also {
             addFragmentBinding.spFuelVolume.adapter = it
         }
-        addFragmentBinding.spFuelVolume.setSelection(5)
+        addFragmentBinding.spFuelVolume.setSelection(6)
         addFragmentBinding.spFuelVolume.onItemSelectedListener = this
         return fragmentView
     }
